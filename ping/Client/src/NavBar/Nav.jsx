@@ -40,7 +40,7 @@ const Nav = ({ collapsed, setCollapsed }) => {
     ];
 
     return (
-        <div className={`bg-gray-700 ${collapsed ? 'w-[4.5rem]' : 'w-[14rem]'} fixed min-h-screen  transition-all duration-300`}>
+        <div className={`bg-gray-800 ${collapsed ? 'w-[4.5rem]' : 'w-[14rem]'} fixed min-h-screen  transition-all duration-300`}>
             <div className="relative text-white  flex  ">
                 <div className="flex justify-start">
                     <IoReorderThreeOutline
@@ -51,10 +51,10 @@ const Nav = ({ collapsed, setCollapsed }) => {
             </div>
             <div className="relative text-left my-[2vh]">
                 <Link
-                    to="#"
+                    to="/dashboard"
                 >
-                    <div className={`relative text-white px-5 py-4 border-y-1 hover:bg-gray-800 flex items-center justify-between cursor-pointer
-                                    ${location.pathname.includes("#") ? "bg-gray-800" : ""}`}>
+                    <div className={`relative text-white px-5 py-4 border-y-1 hover:bg-gray-700 flex items-center justify-between cursor-pointer
+                                    ${location.pathname.includes("/dashboard") ? "bg-gray-900" : ""}`}>
                         <div className="flex items-center">
                             <IoHome className="mx-1 mr-3 my-0.5 text-xl" />
                             {showText &&
@@ -64,7 +64,7 @@ const Nav = ({ collapsed, setCollapsed }) => {
                     </div>
                 </Link>
 
-                <div className="relative text-white px-5 py-4 border--1 hover:bg-gray-800 flex items-center justify-between cursor-pointer">
+                <div className="relative text-white px-5 py-4 border--1 hover:bg-gray-700 flex items-center justify-between cursor-pointer">
                     <div className="flex items-center">
                         <FaMapMarkedAlt className="mx-1 mr-3 my-0.5 text-xl" />
                         {showText && "Province"}
@@ -84,7 +84,7 @@ const Nav = ({ collapsed, setCollapsed }) => {
 
                 {/* Dropdown items */}
                 {angleDown && showText && Province.map((province, index) => (
-                    <div key={index} className="text-white pl-10 py-2 hover:bg-gray-800 odd:bg-gray-600 flex items-center cursor-pointer">
+                    <div key={index} className="text-white pl-10 py-2 hover:bg-gray-700 odd:bg-gray-600 flex items-center cursor-pointer">
                         <div className="mr-3 text-xl">{province.icon}</div>
                         {province.name}
                     </div>
@@ -92,10 +92,10 @@ const Nav = ({ collapsed, setCollapsed }) => {
                 }
 
                 <Link
-                    to="dashboard"
+                    to="/manageIp"
                 >
-                    <div className={`relative text-white px-5 py-4 border-y-1 hover:bg-gray-800 flex items-center justify-between cursor-pointer
-                                    ${location.pathname.includes("/dashboard") ? "bg-gray-800" : ""}`}>
+                    <div className={`relative text-white px-5 py-4 border-y-1 hover:bg-gray-700 flex items-center justify-between cursor-pointer
+                                    ${location.pathname.includes("/manageIp") ? "bg-gray-900" : ""}`}>
                         <div className="flex items-center">
                             <GiNetworkBars className="mx-1 mr-3 my-0.5 text-xl " />
                             {showText &&
@@ -125,7 +125,7 @@ const Nav = ({ collapsed, setCollapsed }) => {
                 to="/"
             >
                 <div
-                    className={`flex fixed bottom-0 ${collapsed ? 'w-[4.5rem]' : 'w-[14rem]'} px-5 py-4 left-0 bg-gray-700 cursor-pointer z-999 text-white text-center hover:bg-gray-800 transition-all duration-300`}
+                    className={`flex fixed bottom-0 ${collapsed ? 'w-[4.5rem]' : 'w-[14rem]'} px-5 py-4 left-0 hover:bg-gray-700 bg-gray-800 cursor-pointer z-999 text-white text-center  transition-all duration-300`}
                 ><div className="flex justify-start">
                         <MdOutlineLogout className="mx-1 mr-3 my-0.5 text-xl" />
                         {showText && "Logout"}

@@ -1,16 +1,16 @@
 import React,{useState} from "react";
 import Nav from "../NavBar/Nav";
-import Dashboard from "../Dashborad/Dashboard";
+import ManageIp from "../Dashborad/ManageIp";
 
-const MainDashboard = () => {
+const MainManageIp = () => {
     const [collapsed, setCollapsed] = useState(false);
 
     return (
         <div className="flex">
             <Nav collapsed={collapsed} setCollapsed={setCollapsed} />
-            <Dashboard collapsed={collapsed} />
+            <ManageIp collapsed={collapsed} />
         </div>
     );
 };
   
-export default MainDashboard;
+export default MainManageIp;

@@ -100,10 +100,10 @@ const Login = () => {
 
     return (
         <div
-        style={{ backgroundImage: `url(${loginBg})` }}
+        // style={{ backgroundImage: `url(${loginBg})` }}
         className="w-screen h-screen bg-cover bg-center flex items-center justify-center"
     >
-        <div className="relative w-full max-w-[28rem] px-8 py-10 bg-gray-700/30 backdrop-blur-xl shadow-2xl">
+        <div className="relative w-full max-w-[25rem] px-8 py-10 bg-gray-900 rounded-xl shadow-2xl">
             <div className="flex flex-col items-center mb-6">
                 <img src={nea} alt="NEA LOGO" className="w-90 h-25 object-contain" />
             </div>
@@ -116,8 +116,9 @@ const Login = () => {
             )}
 
             <form className="space-y-6">
-                <div className="flex items-center space-x-3">
-                    <FaUserAlt className="text-2xl text-gray-300" />
+                <div className=" items-center space-x-3">
+                    {/* <FaUserAlt className="text-2xl text-gray-300" /> */}
+                    <div className="text-white pb-1">Username</div>
                     <input
                         type="text"
                         name="username"
@@ -125,12 +126,13 @@ const Login = () => {
                         onChange={handleChange}
                         placeholder="Username"
                         autoComplete="off"
-                        className="w-full px-4 py-2 bg-gray-100 text-gray-800 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:bg-gray-300"
+                         className="w-full px-4 py-2 bg-gray-800 text-white rounded-lg border border-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-600"
                     />
                 </div>
 
-                <div className="flex items-center space-x-3">
-                    <FaLock className="text-2xl text-gray-300" />
+                <div className=" items-center space-x-3">
+                    {/* <FaLock className="text-2xl text-gray-300" /> */}
+                    <div className="text-white pb-1">Password</div>
                     <input
                         type="password"
                         name="password"
@@ -140,14 +142,10 @@ const Login = () => {
                         value={formData.password}
                         onChange={handleChange}
                         placeholder="Password"
-                        className="w-full px-4 py-2 bg-gray-100 text-gray-800 rounded-lg border border-gray-300 focus:outline-none focus:ring-2  focus:ring-blue-200 focus:bg-gray-300"
+                        className="w-full px-4 py-2 bg-gray-800 text-white rounded-lg border border-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-600"
                     />
                 </div>
 
-                <div className="flex justify-between text-sm text-white px-1">
-                    <button type="button" className="hover:cursor-pointer hover:text-gray-300">Remember me</button>
-                    <button type="button" className="hover:cursor-pointer hover:text-gray-300">Forget Password?</button>
-                </div>
 
                 {/* Thunder Effect Animation */}
                 {loading && (
@@ -171,7 +169,7 @@ const Login = () => {
                 <div className="flex justify-center">
                     <button
                         type="submit"
-                        className="py-2 px-10 text-white font-semibold bg-blue-600 rounded-full hover:bg-blue-700 transition-all duration-300"
+                        className="py-2 m-2 w-full text-white font-semibold bg-blue-600 rounded-lg hover:bg-blue-700 transition-all duration-300"
                         disabled={loading}
                         onClick={handleSubmit}
                     >
