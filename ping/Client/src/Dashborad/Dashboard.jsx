@@ -58,12 +58,12 @@ const Dashboard = ({collapsed}) => {
   };
 
   return (
-    <div className={`  ${collapsed ? 'ml-[4.5rem]' : 'ml-[14rem]'} relative  transition-all duration-300 w-screen mt-6 p-10 justify-center`}> 
+    <div className={`${ collapsed ? 'ml-[4.5rem]' : ' ml-[4.5rem] md:ml-[14rem]'} relative  transition-all duration-300 w-screen mt-6 p-10 justify-center`}> 
       <div className="mb-6">
-        <h1 className="text-3xl font-bold text-white flex items-center">
+        <h1 className="text-lg md:text-3xl font-bold text-white flex items-center">
           <Activity className="mr-2 text-blue-500" />
           Server Status Dashboard
-          <span className="ml-auto text-base font-normal text-gray-400">
+          <span className=" md:block hidden ml-auto text-base font-normal text-gray-400">
             {new Date().toLocaleTimeString()}
           </span>
         </h1>
@@ -76,13 +76,13 @@ const Dashboard = ({collapsed}) => {
         animate="visible"
       >
         <motion.div variants={itemVariants}>
-          <div className="bg-gray-800 rounded-lg p-6 h-[22rem]">
-            <h2 className="text-xl font-semibold text-gray-300 mb-4 flex items-center">
+          <div className="bg-gray-800  rounded-lg p-6 md:h-[22rem]">
+            <h2 className="text-sm md:text-xl font-semibold text-gray-300 mb-4 flex items-center">
               <Clock className="mr-2 text-gray-400" />
               Status Distribution
             </h2>
             {loading ? (
-              <div className="flex justify-center items-center h-48">
+              <div className="flex justify-center items-center ">
                 <div className="w-10 h-10 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
               </div>
             ) : (
@@ -93,7 +93,7 @@ const Dashboard = ({collapsed}) => {
 
         <motion.div variants={itemVariants}>
           <div className="bg-gray-800 rounded-lg p-6 mb-6 h-[22rem]">
-            <h2 className="text-xl font-semibold text-gray-300 mb-4 flex items-center">
+            <h2 className="text-sm md:text-xl font-semibold text-gray-300 mb-4 flex items-center">
               <Activity className="mr-2 text-gray-400" />
               System Status
             </h2>
@@ -130,8 +130,8 @@ const Dashboard = ({collapsed}) => {
         </motion.div>
 
         <motion.div variants={itemVariants} className="md:col-span-2 lg:col-span-1">
-          <div className="bg-gray-800 rounded-lg p-6 h-[22rem]">
-            <h2 className="text-xl font-semibold text-gray-300 mb-4 flex items-center">
+          <div className="bg-gray-800 rounded-lg p-6 md:h-[22rem]">
+            <h2 className="text-sm md:text-xl font-semibold text-gray-300 mb-4 flex items-center">
               <AlertTriangle className="mr-2 text-gray-400" />
               Sites with Issues
             </h2>
@@ -161,7 +161,7 @@ const Dashboard = ({collapsed}) => {
                       ))}
                   </div>
                 ) : (
-                  <div className="text-center py-12 text-gray-400">
+                  <div className="text-center py-5 text-gray-400">
                     All systems operational
                   </div>
                 )}

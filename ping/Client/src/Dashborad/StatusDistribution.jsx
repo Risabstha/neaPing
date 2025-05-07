@@ -53,7 +53,7 @@ const StatusDistribution = ({ data }) => {
 
   if (total === 0) {
     return (
-      <div className="flex flex-col items-center justify-center h-48 text-gray-400">
+      <div className="flex flex-col items-center justify-center py-5 text-gray-400">
         No data
       </div>
     );

@@ -9,10 +9,15 @@ import { FaMapMarkedAlt, FaAngleDown, FaAngleUp, FaUserPlus } from "react-icons/
 import { MdOutlineLogout } from "react-icons/md";
 import { GiNetworkBars } from "react-icons/gi";
 
-const Nav = ({ collapsed, setCollapsed }) => {
+const Nav = ({ collapsed, setCollapsed ,showText, setShowText }) => {
     // const [collapsed, setCollapsed] = useState(false);
-    const [showText, setShowText] = useState(true);
+    // const [showText, setShowText] = useState(true);
     const [angleDown, setAngleDown] = useState(false);
+
+    const handleLogout = () => {
+        localStorage.removeItem("token");
+        navigate("/");
+    };
 
     const toggleSidebar = () => {
         if (!collapsed) {
@@ -20,7 +25,7 @@ const Nav = ({ collapsed, setCollapsed }) => {
             setTimeout(() => setCollapsed(true), 100);
         } else {
             setCollapsed(false);
-            setTimeout(() => setShowText(true), 300);
+            setTimeout(() => setShowText(true), 200);
         }
     };
 
@@ -40,7 +45,7 @@ const Nav = ({ collapsed, setCollapsed }) => {
     ];
 
     return (
-        <div className={`bg-gray-800 ${collapsed ? 'w-[4.5rem]' : 'w-[14rem]'} fixed min-h-screen  transition-all duration-300`}>
+        <div className={`bg-gray-800 z-50 ${collapsed ?'w-[4.5rem]' : 'w-[14rem]'} fixed min-h-screen  transition-all duration-300`}>
             <div className="relative text-white  flex  ">
                 <div className="flex justify-start">
                     <IoReorderThreeOutline
@@ -122,13 +127,15 @@ const Nav = ({ collapsed, setCollapsed }) => {
 
 
             <Link
+            onClick={handleLogout}
                 to="/"
             >
                 <div
-                    className={`flex fixed bottom-0 ${collapsed ? 'w-[4.5rem]' : 'w-[14rem]'} px-5 py-4 left-0 hover:bg-gray-700 bg-gray-800 cursor-pointer z-999 text-white text-center  transition-all duration-300`}
+                
+                    className={` absolute   bottom-0 ${collapsed ? 'w-[4.5rem]' : 'w-[14rem]'} px-5 py-4 left-0 hover:bg-gray-700 bg-gray-800 cursor-pointer z-999 text-white text-center  transition-all duration-300`}
                 ><div className="flex justify-start">
-                        <MdOutlineLogout className="mx-1 mr-3 my-0.5 text-xl" />
-                        {showText && "Logout"}
+                        <MdOutlineLogout className={`text-xl my-1 mx-1  ${collapsed ? '' : 'mr-3'}`}  />
+                        {showText && <button >Logout</button>}
                     </div>
 
                 </div></Link>

@@ -2,8 +2,7 @@ import React,{useState} from "react";
 import Nav from "../NavBar/Nav";
 import Register from "../Login/Register";
 
-const ManageUser = () => {
-    const [collapsed, setCollapsed] = useState(false);
+const ManageUser = ({collapsed,setCollapsed}) => {
 
     return (
         <div className="flex">
