@@ -5,6 +5,7 @@ import MainDashboard from './Component/MainDashboard.jsx';
 // import ManageUser from './Component/Manage_User.jsx';
 import ProtectedRoute from './Protected_Route/ProtectedRoute.jsx';
 import MainManageIp from './Component/MainManageIp.jsx';
+import Heatmap from "./Dashborad/Heatmap.jsx";
 
 function App() {
   const [collapsed, setCollapsed] = useState(() => window.innerWidth <= 768);
@@ -46,6 +47,10 @@ function App() {
               path="/manageIp"
               element={<MainManageIp collapsed={collapsed} setCollapsed={setCollapsed}
                 showText={showText} setShowText={setShowText}/>} />
+            <Route
+              path="/heatmap"
+              element={<Heatmap />}
+            />
           </Route>
 
         </Routes>
