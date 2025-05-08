@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 // import api from '../services/api';
 import StatusCard from './StatusCard';
 import StatusDistribution from './StatusDistribution';
+import Heatmap from "./Heatmap"; // Import the Heatmap component
+import { CiGrid32 } from "react-icons/ci";
 
 const Dashboard = ({collapsed}) => {
   const [servers, setServers] = useState([]);
@@ -167,6 +169,17 @@ const Dashboard = ({collapsed}) => {
                 )}
               </div>
             )}
+          </div>
+        </motion.div>
+
+        {/* Heatmap Section */}
+        <motion.div variants={itemVariants} className="md:col-span-2 lg:col-span-3">
+          <div className="bg-gray-800 rounded-lg p-6">
+            <h2 className="text-sm md:text-xl font-bold text-gray-300 mb-4 flex items-center">
+              <CiGrid32  className="mr-2 text-gray-400 font-bold  text-3xl" />
+              Heatmap
+            </h2>
+            <Heatmap />
           </div>
         </motion.div>
       </motion.div>
