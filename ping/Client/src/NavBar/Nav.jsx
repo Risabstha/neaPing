@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { IoReorderThreeOutline, IoHome } from "react-icons/io5";
-import {
-    PiNumberSquareOneFill, PiNumberSquareTwoFill, PiNumberSquareThreeFill,
-    PiNumberSquareFourFill, PiNumberSquareFiveFill, PiNumberSixFill, PiNumberSquareSevenFill
-} from "react-icons/pi";
-import { FaMapMarkedAlt, FaAngleDown, FaAngleUp, FaUserPlus } from "react-icons/fa";
+import { BsGrid1X2Fill } from "react-icons/bs";
 import { MdOutlineLogout } from "react-icons/md";
 import { GiNetworkBars } from "react-icons/gi";
 
@@ -34,15 +30,6 @@ const Nav = ({ collapsed, setCollapsed ,showText, setShowText }) => {
         // setTimeout(() => setAngleDown(true), 100);
     };
 
-    const Province = [
-        { name: "Koshi Province", icon: <PiNumberSquareOneFill /> },
-        { name: "Madhesh Province", icon: <PiNumberSquareTwoFill /> },
-        { name: "Bagmati Province", icon: <PiNumberSquareThreeFill /> },
-        { name: "Gandaki Province", icon: <PiNumberSquareFourFill /> },
-        { name: "Lumbini Province", icon: <PiNumberSquareFiveFill /> },
-        { name: "Karnali Province", icon: <PiNumberSixFill /> },
-        { name: "Sudurpashchim Province", icon: <PiNumberSquareSevenFill /> },
-    ];
 
     return (
         <div className={`bg-gray-800 z-50 ${collapsed ?'w-[4.5rem]' : 'w-[14rem]'} fixed min-h-screen  transition-all duration-300`}>
@@ -69,32 +56,19 @@ const Nav = ({ collapsed, setCollapsed ,showText, setShowText }) => {
                     </div>
                 </Link>
 
-                <div className="relative text-white px-5 py-4 border--1 hover:bg-gray-700 flex items-center justify-between cursor-pointer">
-                    <div className="flex items-center">
-                        <FaMapMarkedAlt className="mx-1 mr-3 my-0.5 text-xl" />
-                        {showText && "Province"}
+                <Link
+                    to="/heatmap"
+                >
+                    <div className={`relative text-white px-5 py-4 border-y-1 hover:bg-gray-700 flex items-center justify-between cursor-pointer
+                                    ${location.pathname.includes("/heatmap") ? "bg-gray-900" : ""}`}>
+                        <div className="flex items-center">
+                            <BsGrid1X2Fill className="mx-1 mr-3 my-0.5 text-xl " />
+                            {showText &&
+                                "Ip Heatmap"
+                            }
+                        </div>
                     </div>
-                    {showText && (angleDown ? (
-                        <FaAngleUp
-                            className="text-xl cursor-pointer"
-                            onClick={toggleAngleDown}
-                        />
-                    ) : (
-                        <FaAngleDown
-                            className="text-xl cursor-pointer"
-                            onClick={toggleAngleDown}
-                        />
-                    ))}
-                </div>
-
-                {/* Dropdown items */}
-                {angleDown && showText && Province.map((province, index) => (
-                    <div key={index} className="text-white pl-10 py-2 hover:bg-gray-700 odd:bg-gray-600 flex items-center cursor-pointer">
-                        <div className="mr-3 text-xl">{province.icon}</div>
-                        {province.name}
-                    </div>
-                ))
-                }
+                </Link>
 
                 <Link
                     to="/manageIp"

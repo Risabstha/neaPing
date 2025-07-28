@@ -6,6 +6,7 @@ import MainDashboard from './Component/MainDashboard.jsx';
 import ProtectedRoute from './Protected_Route/ProtectedRoute.jsx';
 import MainManageIp from './Component/MainManageIp.jsx';
 import Heatmap from "./Dashborad/Heatmap.jsx";
+import MainHeatmap from './Component/MainHeatmap.jsx';
 
 function App() {
   const [collapsed, setCollapsed] = useState(() => window.innerWidth <= 768);
@@ -49,7 +50,8 @@ function App() {
                 showText={showText} setShowText={setShowText}/>} />
             <Route
               path="/heatmap"
-              element={<Heatmap />}
+              element={<MainHeatmap collapsed={collapsed} setCollapsed={setCollapsed}
+                showText={showText} setShowText={setShowText}/>}
             />
           </Route>
 
