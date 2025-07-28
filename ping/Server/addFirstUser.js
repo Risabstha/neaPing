@@ -19,7 +19,7 @@ const addFirstUser = async () => {
     }
 
     // Create the first user
-    const hashedPassword = await bcrypt.hash("Admin@123", 10); // Replace with a secure password
+    const hashedPassword = await bcrypt.hash("Password1@@", 10); // Replace with a secure password
     const user = new User({
       username: "admin",
       password: hashedPassword,
