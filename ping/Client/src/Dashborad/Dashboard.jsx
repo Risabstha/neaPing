@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import StatusCard from './StatusCard';
 import StatusDistribution from './StatusDistribution';
 import { jwtDecode } from 'jwt-decode';
+import Time from './Time.jsx'
 
 const Dashboard = ({ collapsed }) => {
   const [servers, setServers] = useState([]);
@@ -120,7 +121,7 @@ const Dashboard = ({ collapsed }) => {
           <Activity className="mr-2 text-blue-500" />
           Server Status Dashboard
           <span className=" md:block hidden ml-auto text-base font-normal text-gray-400">
-            {new Date().toLocaleTimeString()}
+            <Time/>
           </span>
         </h1>
       </div>

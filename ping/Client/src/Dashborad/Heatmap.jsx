@@ -2,7 +2,11 @@ import React, { useEffect, useState } from "react";
 import { CiGrid32 } from "react-icons/ci";
 import { motion } from "framer-motion";
 import { jwtDecode } from 'jwt-decode';
+import { CiStopwatch } from "react-icons/ci";
+
+
 const Heatmap = ({ collapsed }) => {
+  const pingLoss = 95;
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedProvince, setSelectedProvince] = useState("");
@@ -116,6 +120,13 @@ const Heatmap = ({ collapsed }) => {
     );
   }
 
+   const getBackgroundColor = (loss) => {
+    if ( loss < 10) return 'bg-green-500';
+    if (loss >= 30 && loss <=90) return 'bg-yellow-500';
+    return 'bg-red-500';
+  };
+
+
   return (
     <div
       className={`${collapsed ? "ml-[4.5rem]" : " ml-[4.5rem] md:ml-[14rem]"
@@ -184,7 +195,7 @@ const Heatmap = ({ collapsed }) => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="p-4 bg-gray-800 text-white rounded-lg shadow-md flex flex-col items-center justify-center"
+                className={`p-4 bg-gray-800 text-white rounded-lg shadow-md flex flex-col items-center justify-center ${getBackgroundColor(pingLoss)}`}
               >
                 <p className="text-lg font-semibold">{item.name}</p>
                 <p className="text-sm text-gray-400">{item.ip}</p>
