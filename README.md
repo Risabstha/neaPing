@@ -4,17 +4,6 @@ neaPing is a network monitoring tool for managing, monitoring, and visualizing t
 
 
 
-## Project Structure
-neaPing/
-│
-├── ping/
-│   ├── Client/      # Frontend source code (React, JavaScript)
-│   ├── Server/      # Backend source code (Node.js/Express)
-│   └── ...          # Additional configs and files
-└── README.md
-
----
-
 ## Client (Frontend)
 
 The `Client` folder contains a React-based web application for interacting with the network monitoring system.
